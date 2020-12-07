@@ -6,7 +6,6 @@ import NavBar from './Components/NavBar'
 import Footer from './Components/Footer/Footer'
 import Products from './Pages/Products'
 
-
 const App = () => {
   return (
     <Router>
