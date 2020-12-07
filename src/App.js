@@ -26,7 +26,7 @@ function App() {
   return (
     <div>
 
-      <div className='px-5 pb-5 pt-4 mb-3' style={{ backgroundColor: '#37474F', height: '100vh' }}>
+      <div className='px-5 pb-5 pt-4 mb-3' style={{ backgroundColor: '#37474F' }}>
         <NavBar />
 
         <div className='container'>
