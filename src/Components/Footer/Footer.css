@@ -1,0 +1,38 @@
+.Footer {
+    background-color: #37474F;
+    display: block;
+    position: sticky;
+}
+
+.Footer .faIcons {
+    font-size: 2.3rem;
+}
+
+.Footer .faIcons:hover {
+    background-color: transparent;
+}
+
+.Footer a {
+    color: white;
+    padding: 10px 20px;
+}
+
+.Footer a:hover {
+    color: wheat;
+}
+
+.Footer a:link {
+    text-decoration: none;
+    
+}
+
+.Footer .footerInfo {
+    color: white;
+    line-height: 1.7rem;
+}
+
+.Footer hr {
+    border: 0;
+    border-top: 1px solid wheat;
+    margin: '10% 15% 5%'
+}

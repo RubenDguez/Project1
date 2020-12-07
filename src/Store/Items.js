@@ -9,7 +9,6 @@ const List = (props) => {
 
   return (
     <div>
-      <h2 className='my-5'>Resently added items</h2>
       <div className='row justify-content-center'>
         {items.map(item => {
           return (
