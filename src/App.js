@@ -23,6 +23,17 @@ function App() {
       })
   }, [setAppState])
 
+  useEffect(() => {
+    setAppState({ loading: true })
+    const apiurl = "https://api.unsplash.com/photos/random/?client_id=MyAccessKey".concat()
+    const apiUrl = `http://18.191.164.245:8080/Amazon/items`
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(items => {
+        setAppState({ loading: false, items: items })
+      })
+  }, [setAppState])
+
   return (
     <div>
 
