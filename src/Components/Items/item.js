@@ -1,5 +1,5 @@
 import React from 'react'
-import img from '../img/blank.svg'
+import img from '../../img/blank.svg'
 
 const item = props => {
 

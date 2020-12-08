@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import List from '../Store/Items'
-import withListLoading from '../Store/listLoading'
+import List from '../Components/Items/Items'
+import withListLoading from '../Components/Items/listLoading'
 import Jumbotron from '../Components/Jumbotron'
 import Featured from '../Components/Featured'
 import SignUp from '../Components/SignUp'
