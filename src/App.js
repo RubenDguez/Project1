@@ -1,24 +1,25 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import axios from 'axios'
+
 import Landing from './Pages/Landing'
 import About from './Pages/About'
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer/Footer'
 import Products from './Pages/Products'
 
-class App extends Component {
+export default class App extends Component {
 
   state = {
     items: []
   }
 
   componentDidMount() {
-    fetch('http://18.191.164.245:8080/Amazon/items')
-      .then(res => res.json())
-      .then((data) => {
-        this.setState({ items: data })
+    axios.get('http://18.191.164.245:8080/Amazon/items')
+      .then(res => {
+        const items = res.data;
+        this.setState({ items });
       })
-      .catch(console.log)
   }
 
   render() {
@@ -46,4 +47,3 @@ class App extends Component {
   }
 }
 
-export default App
