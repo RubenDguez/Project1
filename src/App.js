@@ -7,6 +7,7 @@ import About from './Pages/About'
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer/Footer'
 import Products from './Pages/Products'
+import SignIn from './Pages/SignIn'
 
 export default class App extends Component {
 
@@ -38,6 +39,9 @@ export default class App extends Component {
             </Route>
             <Route path='/products'>
               <Products items={this.state.items} />
+            </Route>
+            <Route path='/signin'>
+              <SignIn />
             </Route>
           </Switch>
         </div>
