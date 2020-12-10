@@ -7,12 +7,15 @@ import About from './Pages/About'
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer/Footer'
 import Products from './Pages/Products'
-import SignIn from './Pages/SignIn'
+import SignIn from './Pages/Login'
 
-export default class App extends Component {
+class App extends Component {
 
-  state = {
-    items: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: []
+    }
   }
 
   componentDidMount() {
@@ -25,7 +28,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router>
+      < Router >
         <div className='px-5 pb-5 pt-4' style={{ backgroundColor: '#37474F' }}>
           <NavBar />
         </div>
@@ -40,7 +43,7 @@ export default class App extends Component {
             <Route path='/products'>
               <Products items={this.state.items} />
             </Route>
-            <Route path='/signin'>
+            <Route path='/login'>
               <SignIn />
             </Route>
           </Switch>
@@ -50,4 +53,6 @@ export default class App extends Component {
     )
   }
 }
+
+export default App;
 

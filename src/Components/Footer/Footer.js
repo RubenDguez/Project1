@@ -74,7 +74,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="footer-copyright text-center py-3">© 2020 Copyright:
+                <div className="footer-copyright text-center text-warning py-3">© {new Date().getFullYear()} Copyright:
                         <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
                 </div>
             </div>

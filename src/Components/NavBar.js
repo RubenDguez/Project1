@@ -1,38 +1,84 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import * as actionTypes from '../store/actionTypes'
+import Axios from 'axios'
 
-const navBar = () => {
+const navBar = (props) => {
+    let button;
+    if (props.isUserLoggedIn) {
+        button = <Link className='btn btn-outline-light ml-2 my-2 my-sm-0 ' onClick={() => handleLogOutButton()} to='/' role='button'>Log Out</Link>
+    } else {
+        button = <Link className='btn btn-outline-light ml-2 my-2 my-sm-0 ' to='/login' role='button'>Log In</Link>
+    }
+
+    let emailAddress;
+    if (props.emailAddress !== '') {
+        emailAddress = <p className='text-right pr-3 text-warning text-uppercase '><small>Logged In as: {props.emailAddress}</small></p>
+    } else {
+        emailAddress = ''
+    }
+
+    const handleLogOutButton = () => {
+        Axios.delete('http://18.191.164.245:8080/Amazon/sessions', {})
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch(error => console.log(error))
+    }
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <div>
+            {emailAddress}
+            <nav className="navbar navbar-expand-lg navbar-dark">
 
-            <a className="navbar-brand" href=''>Bootleg Amazon</a>
 
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
+                <a className="navbar-brand" href=''>Bootleg Amazon</a>
 
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto">
-                    <li className="nav-item">
-                        <Link className="nav-link" to='/'>Home</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to='/products'>Products</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to='/about'>About</Link>
-                    </li>
-                </ul>
-                <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
 
-                    <Link className='btn btn-outline-light ml-2 my-2 my-sm-0' to='/signin' role='button'>Sign In</Link>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <Link className="nav-link" to='/'>Home</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to='/products'>Products</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to='/about'>About</Link>
+                        </li>
+                    </ul>
+                    <form className="form-inline my-2 my-lg-0">
 
-                </form>
-            </div>
-        </nav>
+                        <input className="form-control mr-sm-2 input-sm" type="search" placeholder="Search" aria-label="Search" />
+                        <button className="btn btn-outline-light my-2 my-sm-0 " type="submit">Search</button>
+
+                        {/* This button will auto-render when user log status changes */}
+                        {button}
+
+                    </form>
+                </div>
+            </nav>
+        </div>
     )
 }
 
-export default navBar
+// Hooking up the props we need from the store
+const mapStateToProps = state => {
+    return {
+        isUserLoggedIn: state.isUserLoggedIn,
+        emailAddress: state.emailAddress
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogOut: () => dispatch({ type: actionTypes.LOG_OUT })
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(navBar);
