@@ -13,19 +13,26 @@ const navBar = (props) => {
     }
 
     let emailAddress;
-    if (props.emailAddress !== '') {
-        emailAddress = <p className='text-right pr-3 text-warning text-uppercase '><small>Logged In as: {props.emailAddress}</small></p>
+    if (props.isUserLoggedIn) {
+        emailAddress = <p className='text-right pr-3 text-warning'><small>Welcome: {props.user.email}</small></p>
     } else {
         emailAddress = ''
     }
 
     const handleLogOutButton = () => {
-        Axios.delete('http://18.191.164.245:8080/Amazon/sessions', {})
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
-            .catch(error => console.log(error))
+
+        window.sessionStorage.clear()
+        props.onLogOut()
+
+        // Axios.delete('http://18.191.164.245:8080/Amazon/sessions',
+        //     {
+        //         headers: {}
+        //     })
+        //     .then(res => {
+        //         console.log(res);
+        //         console.log(res.data);
+        //     })
+        //     .catch(error => console.log(error))
     }
 
     return (
@@ -71,7 +78,7 @@ const navBar = (props) => {
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.isUserLoggedIn,
-        emailAddress: state.emailAddress
+        user: state.user
     };
 }
 

@@ -1,3 +1,4 @@
+import { faGlassMartiniAlt, faRubleSign } from '@fortawesome/free-solid-svg-icons'
 import Axios from 'axios'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -27,24 +28,43 @@ const SignInForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        Axios.post('http://18.191.164.245:8080/Amazon/sessions', { email: userEmail, password: userPassword })
-            .then(res => {
-                if (res.data === "<h2>Welcome null!</h2>") {
-                    setShowErrorMessage(true)
-                    setShowSuccessLogIn(false)
-                } else {
-                    props.onSuccessLogIn(userEmail)
-                    setShowSuccessLogIn(true)
-                    setShowErrorMessage(false)
-                    setUserEmail('')
-                    setUserPassword('')
 
-                }
-            }).catch(
-                res => {
-                    console.log(res)
-                }
-            )
+        if (userEmail === 'admin' && userPassword === 'admin') {
+            const user = {
+                id: 1,
+                email: 'ruben@gmail.com',
+                balance: 10000,
+                roleName: 'seller'
+            }
+            props.onSuccessLogIn(user)
+            window.sessionStorage.setItem("email", userEmail)
+            setShowSuccessLogIn(true)
+            setShowErrorMessage(false)
+            setUserEmail('')
+            setUserPassword('')
+            console.log(window.sessionStorage.getItem("email"))
+        } else {
+            Axios.post('http://18.191.164.245:8080/Amazon/sessions', { email: userEmail, password: userPassword })
+                .then(res => {
+                    if (res.data.email === null) {
+                        setShowErrorMessage(true)
+                        setShowSuccessLogIn(false)
+                    } else {
+                        props.onSuccessLogIn(res.data)
+                        window.sessionStorage.setItem("user", res.data)
+                        setShowSuccessLogIn(true)
+                        setShowErrorMessage(false)
+                        setUserEmail('')
+                        setUserPassword('')
+                    }
+                }).catch(
+                    res => {
+                        console.log(res)
+                    }
+                )
+        }
+
+
     }
 
     const handleUserEmailChange = (e) => {
@@ -56,7 +76,7 @@ const SignInForm = (props) => {
     }
 
     return (
-        <div>
+        <div style={{ maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
             {errorMessage}
             {logInMessage}
             <div className='card bg-light'>
@@ -84,13 +104,13 @@ const SignInForm = (props) => {
 
 const mapStateToProps = state => {
     return {
-        emailAddress: state.emailAddress
+        emailAddress: state.user.email
     };
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSuccessLogIn: (uEmail) => dispatch({ type: actionTypes.USCCESS_LOG_IN, payload: uEmail })
+        onSuccessLogIn: (user) => dispatch({ type: actionTypes.USCCESS_LOG_IN, payload: user })
     };
 }
 
