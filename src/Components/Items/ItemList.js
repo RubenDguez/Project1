@@ -1,5 +1,6 @@
 import React from 'react'
 import Item from './item'
+import { Link } from 'react-router-dom'
 
 const ItemList = (props) => {
 
@@ -11,7 +12,9 @@ const ItemList = (props) => {
         {
           props.items.map((item) => (
             <div key={item.id}>
-              <Item name={item.name} price={item.price} description={item.description} />
+              <Link to={'/product/' + item.id}>
+                <Item name={item.name} price={item.price} description={item.description} />
+              </Link>
             </div>
           ))
         }
