@@ -7,7 +7,7 @@ import Landing from "./Pages/Landing";
 import About from "./Pages/About";
 import Products from "./Pages/Products";
 import SignIn from "./Pages/Login";
-import Admin from "./Pages/Admin";
+import Users from "./Pages/UsersTools/Users";
 
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
@@ -52,9 +52,10 @@ class App extends Component {
               <SignIn />
             </Route>
 
-            <Route path="/admin">
-              <Admin />
+            <Route path="/users">
+              <Users />
             </Route>
+
           </Switch>
         </div>
 

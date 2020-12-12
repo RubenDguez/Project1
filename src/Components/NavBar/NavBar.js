@@ -2,24 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import LogInOutBTN from "./LogInOutBTN";
+import UserAvatar from "./UserAvatar"
 
 const navBar = (props) => {
-  let emailAddress;
 
-  if (props.isUserLoggedIn) {
-    emailAddress = (
-      <p className="pl-3 text-warning">
-        <small>Welcome: {props.user.email}</small>
-      </p>
-    );
-  } else {
-    emailAddress = "";
-  }
 
   return (
     <div>
-      {/* This section will auto render if user is logged in */}
-      {emailAddress}
+      <div className='pl-3'>
+        <UserAvatar userEmail={props.userEmail} />
+      </div>
       <nav className="navbar navbar-expand-lg navbar-dark">
         <Link className="navbar-brand" to="/">
           Bootleg Amazon
