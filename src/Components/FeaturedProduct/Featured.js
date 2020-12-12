@@ -2,7 +2,7 @@ import React from 'react'
 
 const featured = () => {
     return (
-        <div className="card text-center">
+        <div className="card text-center my-5 ">
             <div className="card-header">
                 Featured
             </div>

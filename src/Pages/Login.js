@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SignInForm from '../Components/SignIn/SignInForm'
+import SignInForm from '../Components/LogIn/LogInForm'
 
 const Login = (props) => {
     return (

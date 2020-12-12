@@ -81,7 +81,7 @@ const SignInForm = (props) => {
             {errorMessage}
             {logInMessage}
             <div className='card bg-light'>
-                <div className='card-header'>Sign In to Bootleg Amazon</div>
+                <div className='card-header'>Log In to Bootleg Amazon</div>
                 <div className='card-body'>
                     <form onSubmit={handleSubmit}>
                         <div className='form-group'>
