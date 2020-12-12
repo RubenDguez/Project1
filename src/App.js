@@ -4,10 +4,11 @@ import axios from 'axios'
 
 import Landing from './Pages/Landing'
 import About from './Pages/About'
-import NavBar from './Components/NavBar'
-import Footer from './Components/Footer/Footer'
 import Products from './Pages/Products'
 import SignIn from './Pages/Login'
+
+import NavBar from './Components/NavBar/NavBar'
+import Footer from './Components/Footer/Footer'
 
 class App extends Component {
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import * as actionTypes from '../store/actionTypes'
+import * as actionTypes from '../../store/actionTypes'
 import Axios from 'axios'
 
 const navBar = (props) => {
@@ -24,6 +24,8 @@ const navBar = (props) => {
         window.sessionStorage.clear()
         props.onLogOut()
 
+        // Due to CORS issues this secction has been skipped for now
+
         // Axios.delete('http://18.191.164.245:8080/Amazon/sessions',
         //     {
         //         headers: {}
@@ -37,9 +39,9 @@ const navBar = (props) => {
 
     return (
         <div>
+            {/* This section will auto render if user is logged in */}
             {emailAddress}
             <nav className="navbar navbar-expand-lg navbar-dark">
-
 
                 <a className="navbar-brand" href=''>Bootleg Amazon</a>
 

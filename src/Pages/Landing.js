@@ -1,8 +1,8 @@
 import React from 'react'
 import ItemList from '../Components/Items/ItemList'
-import Jumbotron from '../Components/Jumbotron'
-import Featured from '../Components/Featured'
-import SignUp from '../Components/SignUp'
+import Jumbotron from '../Components/Jumbotron/Jumbotron'
+import Featured from '../Components/FeaturedProduct/Featured'
+import SignUp from '../Components/SignUp/SignUp'
 
 const Landing = (props) => {
     return (
