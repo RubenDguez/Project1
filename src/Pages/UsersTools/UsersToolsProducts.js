@@ -1,7 +1,7 @@
 import React, { useEffect, Component } from 'react'
-import { connect } from 'react-redux'
+import ProductList from './Products/ProductList'
 
-const UsersToolsProducts = () => {
+const UsersToolsProducts = (props) => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -11,7 +11,7 @@ const UsersToolsProducts = () => {
         <div>
             <h1>Products</h1>
             <hr />
-
+            <ProductList />
 
         </div>
     )
@@ -23,4 +23,4 @@ const mapStateToProps = state => {
     };
 }
 
-export default connect(mapStateToProps)(UsersToolsProducts)
+export default UsersToolsProducts

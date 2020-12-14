@@ -6,9 +6,9 @@ const initialState = {
     products: [
         {
             id: 0,
-            name: '',
-            price: 0,
-            description: ''
+            name: 'Vulova Watch',
+            price: 300,
+            description: 'Nice Vulova Watch From the 1800s'
         }]
 }
 
