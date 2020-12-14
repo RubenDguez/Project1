@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-import SignInForm from '../Components/LogIn/LogInForm'
+import LogInForm from '../Components/LogIn/LogInForm'
 
 const Login = (props) => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className='container mt-5 p-5'>
-            <SignInForm userState={props.userState} />
+            <LogInForm userState={props.userState} />
         </div>
     )
 }

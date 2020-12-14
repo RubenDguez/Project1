@@ -29,12 +29,12 @@ const SignInForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (userEmail === 'admin' && userPassword === 'admin') {
+        if (userEmail === 'admin@admin.com' && userPassword === 'admin') {
             const user = {
                 id: 1,
                 email: 'ruben@gmail.com',
                 balance: 10000,
-                roleName: 'seller'
+                roleName: 'Admin'
             }
             props.onSuccessLogIn(user)
             window.sessionStorage.setItem("email", userEmail)

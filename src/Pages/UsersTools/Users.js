@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import * as userTypes from '../../store/userTypes'
@@ -8,6 +8,10 @@ import Seller from './Seller'
 import Buyer from '../Buyer'
 
 const Users = (props) => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const role = String.prototype.toUpperCase.call(props.user.roleName === undefined ? '' : props.user.roleName);
 

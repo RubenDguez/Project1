@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import LogInOutBTN from "./LogInOutBTN";
@@ -6,6 +6,17 @@ import UserAvatar from "./UserAvatar"
 
 const navBar = (props) => {
 
+  const [productId, setProductId] = useState('')
+
+  const handleSearchOnChange = (e) => {
+    setProductId(e.target.value)
+  }
+
+  const handleOnSubmitForm = (e) => {
+    e.preventDefault()
+    setProductId('')
+
+  }
 
   return (
     <div>
@@ -47,26 +58,32 @@ const navBar = (props) => {
               </Link>
             </li>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
+          <form onSubmit={(e) => handleOnSubmitForm(e)} className="form-inline my-2 my-lg-0">
             <input
+              onChange={(e) => handleSearchOnChange(e)}
+              value={productId}
               className="form-control mr-sm-2 input-sm"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button
+
+            <Link
+              type='submit'
               className="btn btn-outline-light my-2 my-sm-0 "
-              type="submit"
+              to={'/product/' + productId}
+              style={{ textDecoration: 'none' }}
             >
               Search
-            </button>
+            </Link>
+
 
             {/* This button will auto-render when user log status changes */}
             <LogInOutBTN />
           </form>
         </div>
       </nav>
-    </div>
+    </div >
   );
 };
 

@@ -9,7 +9,9 @@ import About from "./Pages/About";
 import Products from "./Pages/Products";
 import SignIn from "./Pages/Login";
 import Users from "./Pages/UsersTools/Users";
-import ProductByID from './Pages/ProductByID'
+import ProductByID from './Pages/ProductByID';
+import Contact from './Pages/Contact'
+import Help from './Pages/Help'
 
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
@@ -42,6 +44,14 @@ class App extends Component {
 
             <Route path="/about">
               <About />
+            </Route>
+
+            <Route path='/contact'>
+              <Contact />
+            </Route>
+
+            <Route path='/help'>
+              <Help />
             </Route>
 
             <Route path="/products">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom"
@@ -7,6 +7,11 @@ import UsersToolsProducts from '../UsersTools/UsersToolsProducts'
 import UsersToolsUsers from '../UsersTools/UsersToolsUsers'
 
 const Admin = (props) => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
 
     <div>

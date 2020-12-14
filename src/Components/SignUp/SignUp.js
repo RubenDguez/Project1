@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const signUp = () => {
+
+    const [userName, setUserName] = useState('')
+
+
     return (
         <div className='card'>
             <div className='card-body px-5 py-4'>

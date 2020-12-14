@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 const Seller = (props) => {
@@ -11,6 +11,11 @@ const Seller = (props) => {
 };
 
 const mapStateToProps = (state) => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return {
         user: state.user,
     };

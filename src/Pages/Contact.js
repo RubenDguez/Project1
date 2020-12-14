@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react'
 
-const UsersToolsUsers = () => {
+const Contact = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
     return (
-        <div>
-            <h1>Users</h1>
+        <div className='container mt-5'>
+            <h1 className='text-warning'>Contact</h1>
             <hr />
+
         </div>
     )
 }
 
-export default UsersToolsUsers
+export default Contact

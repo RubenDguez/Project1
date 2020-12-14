@@ -1,21 +1,16 @@
 pipeline {
-  agent any
-  stages {
-    stage('test') {
-      steps {
-        sh 'npm run checksum-verify'
-      }
+     agent any
+     stages {
+        stage("Build") {
+            steps {
+                sh "sudo npm install"
+            }
+        }
+        stage("Deploy") {
+            steps {
+                sh "sudo rm -rf /var/www/jenkins-react-app"
+                sh "sudo cp -r /build/ /var/www/jenkins-react-app/"
+            }
+        }
     }
-
-    stage('deploy') {
-      when {
-        branch 'main'
-      }
-
-      steps {
-        sh 'rm -rf /usr/share/tomcat/webapps/ui || true'
-        sh 'cp -r build /usr/share/tomcat/webapps/ui'
-      }
-    }
-  }
 }
