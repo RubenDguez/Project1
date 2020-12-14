@@ -18,8 +18,6 @@ It was build using React as the front end and Toby N Boudreaux API as back end.
 
 
 ## WEBAPP
-- You can download this or clone it going to:
-    - `https://github.com/RubenDguez/Project1.git`
 - This web app was build using NodeJs
 - React
 - EC2
