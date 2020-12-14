@@ -20,6 +20,8 @@ It was build using React as the front end and Toby N Boudreaux API as back end.
 ## WEBAPP
 - This web app was build using NodeJs
 - React
+- React Router
+- React Redux
 - EC2
 - Bootleg Amazon API by Toby N Boudreaux
 - Jenkins for CI/CD
