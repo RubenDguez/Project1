@@ -11,7 +11,16 @@ const featured = (props) => {
             <div className="card-body">
                 <h5 className="card-title">{props.stateProducts[0].name}</h5>
                 <p className="card-text">{props.stateProducts[0].description}</p>
-                <a href="" className="btn btn-primary" onClick={(e) => handleGoSomeWhereButton(e)}>Go somewhere</a>
+
+                <Link
+                    type='submit'
+                    className="btn btn-primary "
+                    to={'/product/' + productId}
+                    style={{ textDecoration: 'none' }}
+                >
+                    Go to product
+            </Link>
+
             </div>
             <div className="card-footer text-muted">
                 2 days ago
