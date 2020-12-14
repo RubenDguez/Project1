@@ -24,6 +24,7 @@ It was build using React as the front end and Toby N Boudreaux API as back end.
 - React
 - EC2
 - Bootleg Amazon API by Toby N Boudreaux
+- Jenkins for CI/CD
 
 
 ## Security
