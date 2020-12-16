@@ -43,16 +43,16 @@ const SignInForm = (props) => {
             setUserEmail('')
             setUserPassword('')
         } else {
-            Axios.post('http://18.191.164.245:8080/Amazon/sessions', { email: userEmail, password: userPassword })
+            Axios.post('http://localhost:8080/Amazon/sessions',
+                { email: userEmail, password: userPassword }
+            )
                 .then(res => {
                     if (res.data.email === null) {
                         setShowErrorMessage(true)
                         setShowSuccessLogIn(false)
                     } else {
                         props.onSuccessLogIn(res.data)
-
                         window.sessionStorage.setItem("email", res.data.email)
-
                         setShowSuccessLogIn(true)
                         setShowErrorMessage(false)
                         setUserEmail('')

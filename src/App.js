@@ -19,12 +19,13 @@ import Footer from "./Components/Footer/Footer";
 import './index.css'
 
 class App extends Component {
+
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    fetch('http://18.191.164.245:8080/Amazon/items')
+    fetch('http://localhost:8080/Amazon/items')
       .then(response => response.json())
       .then(data => this.props.dispatchLoadItems(data));
   }

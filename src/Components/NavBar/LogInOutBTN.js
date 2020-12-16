@@ -2,25 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actionTypes from '../../store/actionTypes'
+import Axios from 'axios'
 
 const LogInOutBTN = (props) => {
 
     const handleLogOutButton = () => {
 
+        fetch('http://localhost:8080/Amazon/sessions', { method: 'DELETE' })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch(error => console.log(error))
+
         window.sessionStorage.clear()
         props.onLogOut()
-
-        // Due to CORS issues this secction has been skipped for now
-
-        // Axios.delete('http://18.191.164.245:8080/Amazon/sessions',
-        //     {
-        //         headers: {}
-        //     })
-        //     .then(res => {
-        //         console.log(res);
-        //         console.log(res.data);
-        //     })
-        //     .catch(error => console.log(error))
     }
 
 

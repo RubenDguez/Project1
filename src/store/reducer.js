@@ -6,10 +6,11 @@ const initialState = {
     products: [
         {
             id: 0,
-            name: 'Vulova Watch',
-            price: 300,
-            description: 'Nice Vulova Watch From the 1800s'
-        }]
+            name: '',
+            price: 0,
+            description: ''
+        }
+    ]
 }
 
 const reducer = (state = initialState, action) => {
@@ -21,13 +22,20 @@ const reducer = (state = initialState, action) => {
             }
         case actionTypes.USCCESS_LOG_IN:
             return {
+                ...state,
                 isUserLoggedIn: state.isUserLoggedIn = true,
                 user: state.user = action.payload
             }
         case actionTypes.LOG_OUT:
             return {
+                ...state,
                 isUserLoggedIn: state.isUserLoggedIn = false,
                 user: state.user = {}
+            }
+        case actionTypes.ADD_ITEM:
+            return {
+                ...state,
+                products: state.products.concat(action.payload)
             }
     }
     return state;

@@ -12,7 +12,7 @@ const ItemList = (props) => {
         {
           props.items.map((item) => (
             <div key={item.id}>
-              <Link to={'/product/' + item.id}>
+              <Link to={`/product/${item.id}`}>
                 <Item name={item.name} price={item.price} description={item.description} />
               </Link>
             </div>

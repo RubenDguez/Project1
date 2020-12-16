@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from 'react'
+import React, { useEffect } from 'react'
 import ProductList from './Products/ProductList'
 
 const UsersToolsProducts = (props) => {
@@ -9,8 +9,7 @@ const UsersToolsProducts = (props) => {
 
     return (
         <div>
-            <h1>Products</h1>
-            <hr />
+            <h1 className='mb-5'>Products</h1>
             <ProductList />
 
         </div>

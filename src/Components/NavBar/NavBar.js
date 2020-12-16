@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import LogInOutBTN from "./LogInOutBTN";
 import UserAvatar from "./UserAvatar"
@@ -15,7 +15,6 @@ const navBar = (props) => {
   const handleOnSubmitForm = (e) => {
     e.preventDefault()
     setProductId('')
-
   }
 
   return (
@@ -71,8 +70,9 @@ const navBar = (props) => {
             <Link
               type='submit'
               className="btn btn-outline-light my-2 my-sm-0 "
-              to={'/product/' + productId}
+              to={`/product/${productId}`}
               style={{ textDecoration: 'none' }}
+              onClick={() => { setProductId('') }}
             >
               Search
             </Link>
